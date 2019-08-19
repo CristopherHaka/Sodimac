@@ -1,11 +1,10 @@
-package com.sodimac.automation.salesforce.stageSet;
+package com.sodimac.automation.flow;
 
 
-import java.io.File;
 import java.io.IOException;
+
 import org.junit.AfterClass;
-import com.cucumber.listener.Reporter;
-import com.sodimac.automation.salesforce.dataProvider.ConfigFileReader;
+
 import cucumber.api.CucumberOptions;
 
 @CucumberOptions(tags = {"@tablasBUC"}//tag de ejecucion de nuestro feature
@@ -18,7 +17,7 @@ import cucumber.api.CucumberOptions;
 public class tablasBUCStageSet {
 	@AfterClass
 	public static void writeExtentReport() throws IOException {
-		Reporter.loadXMLConfig(new File(ConfigFileReader.getInstance().getReportConfigPath()));//creacion de reporte personalizado
+//		Reporter.loadXMLConfig(new File(ConfigFileReader.getInstance().getReportConfigPath()));//creacion de reporte personalizado
 
 	}
 }

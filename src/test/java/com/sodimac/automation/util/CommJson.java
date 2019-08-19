@@ -1,4 +1,4 @@
-package com.sodimac.automation.salesforce.util;
+package com.sodimac.automation.util;
 
 import javax.net.ssl.*;
 import java.io.*;

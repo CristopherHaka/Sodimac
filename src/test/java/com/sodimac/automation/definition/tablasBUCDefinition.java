@@ -1,4 +1,4 @@
-package com.sodimac.automation.salesforce.definition;
+package com.sodimac.automation.definition;
 
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;

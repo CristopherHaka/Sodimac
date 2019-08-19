@@ -1,4 +1,4 @@
-package com.sodimac.automation.salesforce.model;
+package com.sodimac.automation.model;
 
 import java.util.Date;
 

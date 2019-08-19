@@ -1,4 +1,4 @@
-package com.sodimac.automation.salesforce.model;
+package com.sodimac.automation.model;
 
 public final class economyTypeBUC {
 	public static int economyActivityCodeFK;

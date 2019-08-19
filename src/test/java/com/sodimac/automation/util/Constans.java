@@ -1,4 +1,4 @@
-package com.sodimac.automation.salesforce.util;
+package com.sodimac.automation.util;
 
 public class Constans {
 	public static String table_customer = "customer"; 

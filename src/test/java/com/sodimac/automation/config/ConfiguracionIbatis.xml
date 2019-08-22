@@ -5,13 +5,14 @@
 <sqlMapConfig>
  <transactionManager type="JDBC" >
    <dataSource type="SIMPLE">
-    <property name="JDBC.Driver" value="com.mysql.cj.jdbc.Driver"/>
-    <property name="JDBC.ConnectionURL" value="jdbc:mysql://127.0.0.1:3306/sodimac"/>
-    <property name="JDBC.Username" value="root"/>
-    <property name="JDBC.Password" value="root"/>
+    <property name="JDBC.Driver" value="org.postgresql.Driver"/>
+    <property name="JDBC.ConnectionURL" value="jdbc:postgresql://35.247.198.74:5432/BUC"/>
+    <property name="JDBC.Username" value="gochoa"/>
+    <property name="JDBC.Password" value="Oracle123"/>
    </dataSource>
  </transactionManager>
  
- <sqlMap resource="com/sodimac/automation/mappers/customer.xml" />
-
+ <sqlMap resource="com/sodimac/automation/mappers/Customer.xml" />
+ <sqlMap resource="com/sodimac/automation/mappers/TablaModel.xml" />
+ <sqlMap resource="com/sodimac/automation/mappers/ColumnaModel.xml" />
 </sqlMapConfig>

@@ -10,7 +10,7 @@ public class ConsultaDefinition {
 
 	@When("^Realizo consulta a customer$")
 	public void realizo_consulta_a_customer() throws Throwable {
-		Customer cus = CustomerDAO.getCustomerById(2L);
+		Customer cus = CustomerDAO.getCustomerById(1L);
 		System.out.println(cus.getName());
 	}
 }

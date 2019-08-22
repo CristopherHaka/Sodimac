@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap 
+   PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" 
+   "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+
+<sqlMap>
+
+	<resultMap id="resultPkTable"
+		class="com.sodimac.automation.model.ColumnaModel">
+		<result property="nombreTabla" column="table_name" />
+	</resultMap>
+
+	<select id="getPkTableByNameTable"
+		parameterClass="com.sodimac.automation.model.ColumnaModel"
+		resultClass="long">
+		select count(c.column_name) from
+			information_schema.constraint_column_usage c
+		    inner join information_schema.table_constraints t on (c.constraint_name = t.constraint_name )
+		where
+			t.table_schema = #nombreEsquema# 
+			and t.table_name =  #nombreTabla#
+			and t.constraint_type = 'PRIMARY KEY'
+			and c.column_name =	#nombreColumna#
+			and t.table_catalog = #nombreBD#
+	</select>
+	
+	<select id="getFkTableByNameTable"
+		parameterClass="com.sodimac.automation.model.ColumnaModel"
+		resultClass="String">
+		select c.table_name from
+			information_schema.constraint_column_usage c
+			inner join information_schema.table_constraints t on (c.constraint_name = t.constraint_name )
+		where
+			t.table_schema = #nombreEsquema# 
+			and t.table_name =  #nombreTabla#
+			and t.constraint_type = 'FOREIGN KEY'
+			and c.column_name =	#nombreColumna#
+			and t.table_catalog = #nombreBD#
+	</select>
+
+</sqlMap>

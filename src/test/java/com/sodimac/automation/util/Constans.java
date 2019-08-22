@@ -1,6 +1,9 @@
 package com.sodimac.automation.util;
 
 public class Constans {
+	public static String nombre_esquema_buc = "public"; 
+	public static String nombre_bd_buc = "BUC";  
+	
 	public static String table_customer = "customer"; 
 	public static String table_lov = "lov"; 
 	public static String table_audit_trail = "audit_trail"; 

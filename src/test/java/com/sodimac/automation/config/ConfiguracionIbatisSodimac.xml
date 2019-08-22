@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMapConfig
+   PUBLIC "-//ibatis.apache.org//DTD SQL Map Config 2.0//EN"
+   "http://ibatis.apache.org/dtd/sql-map-config-2.dtd">
+<sqlMapConfig>
+ <transactionManager type="JDBC" >
+   <dataSource type="SIMPLE">
+    <property name="JDBC.Driver" value="org.postgresql.Driver"/>
+    <property name="JDBC.ConnectionURL" value="jdbc:postgresql://35.247.198.74:5432/sod-corp-buc-desa:southamerica-east1:rtlsodcorp-buc-development"/>
+    <property name="JDBC.Username" value="gochoa"/>
+    <property name="JDBC.Password" value="Oracle123"/>
+   </dataSource>
+ </transactionManager>
+ 
+ <sqlMap resource="com/sodimac/automation/mappers/customer.xml" />
+
+</sqlMapConfig>

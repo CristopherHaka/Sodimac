@@ -1,7 +1,7 @@
 package com.sodimac.automation.flow;
 
 import org.junit.runners.Suite.SuiteClasses;
-import com.sodimac.automation.config.BaseFlow;
+
 import com.sodimac.automation.stageset.tablasBUCStageSet;
 
 @SuiteClasses({tablasBUCStageSet.class})

@@ -1,7 +1,10 @@
 package com.sodimac.automation.util;
 
-import javax.net.ssl.*;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -12,6 +15,13 @@ import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
 import java.util.LinkedHashMap;
 import java.util.Map;
+
+import javax.net.ssl.HostnameVerifier;
+import javax.net.ssl.HttpsURLConnection;
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.SSLSession;
+import javax.net.ssl.TrustManager;
+import javax.net.ssl.X509TrustManager;
 
 public class CommJson {
 	private URL url = null;
@@ -227,7 +237,6 @@ public class CommJson {
 	 *            Tipo de certificado a deshabilitar, en caso de no estipular, por defecto sera SSL
 	 * @return void
 	 */
-	@SuppressWarnings("restriction")
 	public static void doTrustToCertificates(String sslContext) throws Exception {
 		Security.addProvider(new com.sun.net.ssl.internal.ssl.Provider());
 		TrustManager[] trustAllCerts = new TrustManager[] { new X509TrustManager() {

@@ -40,9 +40,8 @@ Feature: Probar Modelo E-R de BUC
 
     @VerificoFK
     Examples: Validar FK sean PK en la tablas BUC
-      | nombreFK              | nametable          |
-      | "CUSTOMER_ID"         | "ADDRESSpoii"          |
-      
+      | nombreFK      | nametable     |
+      | "CUSTOMER_ID" | "ADDRESSpoii" |
       
   #@VerificoCamposObligatoriosNotNull
   #Scenario Outline: Verifico que en las tablas los campos obligatorios sean distintos de null

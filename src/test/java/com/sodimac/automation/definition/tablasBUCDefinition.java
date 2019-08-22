@@ -6,7 +6,7 @@ import com.sodimac.automation.dao.ColumnaModelDAO;
 import com.sodimac.automation.dao.TablaModelDAO;
 import com.sodimac.automation.model.ColumnaModel;
 import com.sodimac.automation.model.TablaModel;
-import com.sodimac.automation.util.Constans;
+import com.sodimac.automation.util.Constants;
 
 import cucumber.api.PendingException;
 import cucumber.api.java.en.Then;
@@ -34,8 +34,8 @@ public class tablasBUCDefinition {
 	
 	@When("^realizo consulta de la PK\"([^\"]*)\" en la tabla\"([^\"]*)\"$")
 	public void realizo_consulta_de_la_PK_en_la_tabla(String nombrePK, String nombreTabla) throws Throwable {
-		columna.setNombreEsquema(Constans.nombre_esquema_buc.toLowerCase());
-		columna.setNombreBD(Constans.nombre_bd_buc.toUpperCase());
+		columna.setNombreEsquema(Constants.nombre_esquema_buc.toLowerCase());
+		columna.setNombreBD(Constants.nombre_bd_buc.toUpperCase());
 		columna.setNombreTabla(nombreTabla.toUpperCase());
 		columna.setNombreColumna(nombrePK.toUpperCase());
 		columna.setExisteTabla(ColumnaModelDAO.getPkTableByNameTable(columna));
@@ -49,8 +49,8 @@ public class tablasBUCDefinition {
 
 	@When("^realizo consulta del campo FK\"([^\"]*)\" en la tabla\"([^\"]*)\"$")
     public void realizo_consulta_del_campo_FK_en_la_tabla(String nombreFK, String nombreTabla) throws Throwable {
-		columna.setNombreEsquema(Constans.nombre_esquema_buc.toLowerCase());
-		columna.setNombreBD(Constans.nombre_bd_buc.toUpperCase());
+		columna.setNombreEsquema(Constants.nombre_esquema_buc.toLowerCase());
+		columna.setNombreBD(Constants.nombre_bd_buc.toUpperCase());
 		columna.setNombreTabla(nombreTabla.toUpperCase());
 		columna.setNombreColumna(nombreFK.toUpperCase());
 		columna.setNombreTablaReferencia(ColumnaModelDAO.getFkTableByNameTable(columna));

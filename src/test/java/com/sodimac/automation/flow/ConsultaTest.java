@@ -2,7 +2,6 @@ package com.sodimac.automation.flow;
 
 import org.junit.runners.Suite.SuiteClasses;
 
-import com.sodimac.automation.config.BaseFlow;
 import com.sodimac.automation.stageset.ConsultaStageSet;
 
 @SuiteClasses({ConsultaStageSet.class})

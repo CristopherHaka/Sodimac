@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap 
+   PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" 
+   "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+   
+<sqlMap>
+	
+	<resultMap id="resultnametable"	class="com.sodimac.automation.model.TablaModel">
+		<result property="nombreTabla" column="table_name"/>
+    </resultMap>
+    
+    <select id="getExistTableByNameTable"  parameterClass="com.sodimac.automation.model.TablaModel" resultClass="long">
+      select 
+			count(table_name)
+		from 
+			information_schema.TABLES
+		where 
+		TABLE_SCHEMA  = #nombreEsquema#
+		and table_name =  #nombreTabla#;
+    </select>
+	
+</sqlMap>

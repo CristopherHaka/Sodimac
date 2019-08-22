@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap 
+   PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" 
+   "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+   
+ <sqlMap>
+ 
+	 <resultMap class="com.sodimac.automation.model.Customer" id="resultCustomer">
+	 	  <result property="customer_id" column="customer_id"/>
+	 	   <result property="name" column="name"/>
+	 </resultMap>
+ 
+	<select id="getCustomerById" resultClass="com.sodimac.automation.model.Customer">
+		select 
+			customer_id,
+		    name
+		from 
+			customer
+		where customer_id = #customer_id#;
+	</select>
+	
+</sqlMap>

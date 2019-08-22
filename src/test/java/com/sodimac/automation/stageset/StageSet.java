@@ -3,9 +3,10 @@ package com.sodimac.automation.stageset;
 import org.junit.AfterClass;
 import org.junit.runner.RunWith;
 
+import com.cucumber.listener.Reporter;
+
 import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
-import gherkin.formatter.Reporter;
 
 
 @RunWith(Cucumber.class)
@@ -16,8 +17,8 @@ import gherkin.formatter.Reporter;
 public class StageSet {
 	@AfterClass
 	public static void setUpFinal() throws Exception{
-//		String rutaXML = System.getProperty("user.dir")+"/Configs/extent-config.xml";
-//		Reporter.loadXMLConfig(rutaXML);
+ 	String rutaXML = System.getProperty("user.dir")+"/src/test/java/com/sodimac/automation/config/ExtentConfig.xml";
+ 	Reporter.loadXMLConfig(rutaXML);
 	}
 	
 }

@@ -25,16 +25,17 @@ public class BaseFlow {
 	
 	@BeforeClass
 	public static void InitializeWebDriver() throws Exception {
-		setDriverDesa();
+		//setDriverDesa();
 //	    pageModel = PageFactory.initElements(driver, NuevaPropuestaModel.class);
 		String resource = "com/sodimac/automation/config/ConfiguracionIbatis.xml";
 		Reader reader = Resources.getResourceAsReader(resource);
 		sqlMap = SqlMapClientBuilder.buildSqlMapClient(reader);
+		System.out.println("conexion correcta");
 	}
 	    
 	@AfterClass
 	public static void setUpFinal() throws Exception {
-		driver.quit();
+//		driver.quit();
 	}
 
 	public static void setDriverDesa() throws Exception {

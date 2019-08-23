@@ -2,7 +2,7 @@ package com.sodimac.automation.model;
 
 public class ColumnaModel extends TablaModel {
 	public String nombreColumna;
-	public boolean isNull;
+	public String campoNulleable;
 	public String tipoDato;
 	public String maxLargo;
 	public String numericoLargo;
@@ -16,11 +16,11 @@ public class ColumnaModel extends TablaModel {
 	public void setNombreColumna(String nombreColumna) {
 		this.nombreColumna = nombreColumna;
 	}
-	public boolean isNull() {
-		return isNull;
+	public String getCampoNulleable() {
+		return campoNulleable;
 	}
-	public void setNull(boolean isNull) {
-		this.isNull = isNull;
+	public void setCampoNulleable(String campoNulleable) {
+		this.campoNulleable = campoNulleable;
 	}
 	public String getTipoDato() {
 		return tipoDato;
@@ -58,6 +58,8 @@ public class ColumnaModel extends TablaModel {
 	public void setNombreColumnaReferencia(String nombreColumnaReferencia) {
 		this.nombreColumnaReferencia = nombreColumnaReferencia;
 	}
+	
+	
 		
 
 }

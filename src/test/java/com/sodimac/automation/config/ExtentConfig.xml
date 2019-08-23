@@ -11,15 +11,15 @@
     <protocol>https</protocol>
     
     <!-- title of the document -->
-    <documentTitle>Reporte Vida Security</documentTitle>
+    <documentTitle>Reporte Modelo E-R BUC</documentTitle>
     
     <!-- report name - displayed at top-nav -->
     <reportName>
         <image id="image-zoom">
             <!-- RUTA DE IMAGEN -->
-            <![CDATA[<img id ="icon-logo" class="icon-logo" src='bchIcon.png'>]]>
+            <![CDATA[<img id ="icon-logo" class="icon-logo" src='bchIcon.svg'>]]>
         </image>
-        Reporte Qa Automation Compass DPS
+        Reporte Qa Modelo E-R Base de Datos BUC
     </reportName>
     
     

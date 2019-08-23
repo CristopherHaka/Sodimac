@@ -15,7 +15,7 @@ public class TablaModelDAO {
 			valor = (Long) BaseFlow.sqlMap.queryForObject("getExistTableByNameTable",  tabla);
 			valid = valor==1?true:false;
 		} catch (Exception e) {
-			throw e;
+			//throw e;
 		}
 		return valid;
 	}

@@ -1,4 +1,4 @@
-package com.sodimac.automation.config;
+package com.sodimac.automation.flow;
 
 import java.io.Reader;
 import java.util.concurrent.TimeUnit;
@@ -7,7 +7,6 @@ import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
-import org.junit.runners.Suite.SuiteClasses;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -16,7 +15,6 @@ import com.ibatis.sqlmap.client.SqlMapClient;
 import com.ibatis.sqlmap.client.SqlMapClientBuilder;
 
 @RunWith(Suite.class)
-@SuiteClasses({})
 public class BaseFlow {
 	public static WebDriver driver;
 	public static SqlMapClient sqlMap;
@@ -25,7 +23,7 @@ public class BaseFlow {
 	
 	@BeforeClass
 	public static void InitializeWebDriver() throws Exception {
-		//setDriverDesa();
+//		setDriverDesa();
 //	    pageModel = PageFactory.initElements(driver, NuevaPropuestaModel.class);
 		String resource = "com/sodimac/automation/config/ConfiguracionIbatis.xml";
 		Reader reader = Resources.getResourceAsReader(resource);

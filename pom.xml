@@ -13,8 +13,10 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
-
+	
   <dependencies>
+	
+	<!-- Junit -->
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
@@ -22,19 +24,21 @@
       <scope>test</scope>
     </dependency>
     
+    <!-- Cucumber-java -->
     <dependency>
 	    <groupId>info.cukes</groupId>
 	    <artifactId>cucumber-java</artifactId>
 	    <version>1.2.5</version>
 	</dependency>
-
+	
+	<!-- Cucumber-junit -->
 	<dependency>
 		<groupId>info.cukes</groupId>
 		<artifactId>cucumber-junit</artifactId>
 		<version>1.2.5</version>
 		<scope>test</scope>
 	</dependency>
-   
+   <!-- Selenium HQ -->
 	<dependency>
 		<groupId>org.seleniumhq.selenium</groupId>
 		<artifactId>selenium-java</artifactId>
@@ -49,23 +53,30 @@
 	</dependency>
 	
 	<!-- PostgreSQl-->
-	
 	<dependency>
         <groupId>org.postgresql</groupId>
         <artifactId>postgresql</artifactId>
         <version>42.2.6.jre7</version>
     </dependency>
+
+    <!--  cucumber-extentsreport -->
     <dependency>
             <groupId>com.vimalselvam</groupId>
             <artifactId>cucumber-extentsreport</artifactId>
             <version>3.0.2</version>
      </dependency>
+     
       <dependency>
           <groupId>com.aventstack</groupId>
           <artifactId>extentreports</artifactId>
           <version>3.1.2</version>
-      </dependency>
-	
+	</dependency>
+	<!-- json-simple -->
+	<dependency>
+			<groupId>com.googlecode.json-simple</groupId>
+			<artifactId>json-simple</artifactId>
+			<version>1.1.1</version>
+		</dependency>
   </dependencies>
   
 </project>

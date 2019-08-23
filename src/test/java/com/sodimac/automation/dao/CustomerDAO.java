@@ -2,7 +2,7 @@ package com.sodimac.automation.dao;
 
 import java.sql.SQLException;
 
-import com.sodimac.automation.config.BaseFlow;
+import com.sodimac.automation.flow.BaseFlow;
 import com.sodimac.automation.model.Customer;
 
 public class CustomerDAO {

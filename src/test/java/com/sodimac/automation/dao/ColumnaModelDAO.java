@@ -3,9 +3,7 @@ package com.sodimac.automation.dao;
 
 import java.sql.SQLException;
 
-import org.hamcrest.core.IsNull;
-
-import com.sodimac.automation.config.BaseFlow;
+import com.sodimac.automation.flow.BaseFlow;
 import com.sodimac.automation.model.ColumnaModel;
 
 public class ColumnaModelDAO {

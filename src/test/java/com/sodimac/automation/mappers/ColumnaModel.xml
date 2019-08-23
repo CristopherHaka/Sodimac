@@ -24,9 +24,7 @@
 			and t.table_catalog = #nombreBD#
 	</select>
 	
-	<select id="getFkTableByNameTable"
-		parameterClass="com.sodimac.automation.model.ColumnaModel"
-		resultClass="String">
+	<select id="getFkTableByNameTable" parameterClass="com.sodimac.automation.model.ColumnaModel" resultClass="String">
 		select c.table_name from
 			information_schema.constraint_column_usage c
 			inner join information_schema.table_constraints t on (c.constraint_name = t.constraint_name )
@@ -36,6 +34,15 @@
 			and t.constraint_type = 'FOREIGN KEY'
 			and c.column_name =	#nombreColumna#
 			and t.table_catalog = #nombreBD#
+	</select>
+	
+	<select id="getNotNullTableByNameTable" parameterClass="com.sodimac.automation.model.ColumnaModel" resultClass="String">
+		select is_nullable from information_schema.columns
+		where
+			table_schema = #nombreEsquema# 
+			and table_catalog = #nombreBD#
+			and table_name = #nombreTabla#
+			and column_name = #nombreColumna#
 	</select>
 
 </sqlMap>

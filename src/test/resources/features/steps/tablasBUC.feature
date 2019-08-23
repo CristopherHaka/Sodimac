@@ -10,7 +10,7 @@ Feature: Probar Modelo E-R de BUC
       | nombreEsquema | nombreTabla        |
       | "public"      | "CUSTOMER"         |
       | "public"      | "LOV"              |
-      | "public"      | "AUDIT_TRAIL"      |
+      | "public"      | "TRANSACTION_LOG"  |
       | "public"      | "CONTACT"          |
       | "public"      | "CONTACT_METHOD"   |
       | "public"      | "ECONOMY_ACTIVITY" |
@@ -27,11 +27,13 @@ Feature: Probar Modelo E-R de BUC
       | nombrePK              | nametable          |
       | "CUSTOMER_ID"         | "CUSTOMER"         |
       | "LOV_ID"              | "LOV"              |
-      | "AUDIT_ID"            | "AUDIT_TRAIL"      |
       | "CONTACT_ID"          | "CONTACT"          |
-      | "ID"                  | "CONTACT_METHOD"   |
+      | "CONTACT_METHOD_ID"   | "CONTACT_METHOD"   |
       | "ECONOMY_ACTIVITY_ID" | "ECONOMY_ACTIVITY" |
       | "ADDRESS_ID"          | "ADDRESS"          |
+      | "AUDIT_ID"            | "TRANSACTION_LOG"  |
+      | "ECONOMY_ACTIVITY_ID" | "ECONOMY_TYPE"     |
+      | "CUSTOMER_ID"         | "ECONOMY_TYPE"     |
 
   @VerificoFKseanPKEnTablas
   Scenario Outline: Verifico que los FK de la tablas existan en las tablas primarias
@@ -40,26 +42,104 @@ Feature: Probar Modelo E-R de BUC
 
     @VerificoFK
     Examples: Validar FK sean PK en la tablas BUC
-      | nombreFK      | nametable     |
-      | "CUSTOMER_ID" | "ADDRESSpoii" |
+      | nombreFK              | nametable        |
+      | "CUSTOMER_ID"         | "ADDRESS"        |
+      | "CUSTOMER_ID"         | "CONTACT_METHOD" |
+      | "CONTACT_ID"          | "CONTACT_METHOD" |
+      | "CUSTOMER_ID"         | "CONTACT"        |
+      | "FK_PARENT_ID"        | "LOV"            |
+      | "ECONOMY_ACTIVITY_ID" | "ECONOMY_TYPE"   |
+      | "CUSTOMER_ID"         | "ECONOMY_TYPE"   |
+
+  @VerificoCamposObligatoriosNotNull
+  Scenario Outline: Verifico Campos Obligatorios en las tabla
+    When realizo consulta de campo<nombreCampo> en la table<nametable>
+    Then valido que el campo sea obligatorio
+
+    @VerificoCamposObligatoriosCustomer
+    Examples: Validar Campos Obligatorios de la tabla Customer
+      | nombreCampo           | nametable  |
+      | "CUSTOMER_ID"         | "CUSTOMER" |
+      | "NAME"                | "CUSTOMER" |
+      | "CUSTOMER_TYPE"       | "CUSTOMER" |
+      | "QUALITY"             | "CUSTOMER" |
+      | "SOURCE_REGISTRATION" | "CUSTOMER" |
+      | "ACTIVE"              | "CUSTOMER" |
+      | "COUNTRY"             | "CUSTOMER" |
+      | "IDENTIFIER_TYPE"     | "CUSTOMER" |
+      | "IDENTIFIER_VALUE"    | "CUSTOMER" |
+      | "IDENTIFIER_COUNTRY"  | "CUSTOMER" |
+      | "CREATION_DATE"       | "CUSTOMER" |
+
+    @VerificoCamposObligatoriosAddress
+    Examples: Validar Campos Obligatorios de la tabla Address
+      | nombreCampo               | nametable |
+      | "ADDRESS_ID"              | "ADDRESS" |
+      | "CUSTOMER_ID"             | "ADDRESS" |
+      | "STREET"                  | "ADDRESS" |
+      | "CREATED_DATE"            | "ADDRESS" |
+      | "ADMINISTRATIVE_AREA"     | "ADDRESS" |
+      | "SUB_ADMINISTRATIVE_AREA" | "ADDRESS" |
+      | "LOCALITY"                | "ADDRESS" |
+      | "ACTIVE"                  | "ADDRESS" |
+      | "ADDRESS_TYPE"            | "ADDRESS" |
+
+    @VerificoCamposObligatoriosContact
+    Examples: Validar Campos Obligatorios de la tabla Contact
+      | nombreCampo        | nametable |
+      | "CONTACT_ID"       | "CONTACT" |
+      | "CUSTOMER_ID"      | "CONTACT" |
+      | "NAME"             | "CONTACT" |
+      | "SURNAME"          | "CONTACT" |
+      | "IDENTIFIER_TYPE"  | "CONTACT" |
+      | "IDENTIFIER_VALUE" | "CONTACT" |
+      | "ACTIVE"           | "CONTACT" |
+      | "CREATION_DATE"    | "CONTACT" |
+
+    @VerificoCamposObligatoriosContact_Method
+    Examples: Validar Campos Obligatorios de la tabla Contact_Method
+      | nombreCampo                | nametable        |
+      | "CONTACT_METHOD_ID"        | "CONTACT_METHOD" |
+      | "CUSTOMER_ID"              | "CONTACT_METHOD" |
+      | "TYPE"                     | "CONTACT_METHOD" |
+      | "VALUE"                    | "CONTACT_METHOD" |
+      | "PRINCIPAL_CONTACT_METHOD" | "CONTACT_METHOD" |
+      | "ACTIVE"                   | "CONTACT_METHOD" |
+      | "CREATION_DATE"            | "CONTACT_METHOD" |
       
-  #@VerificoCamposObligatoriosNotNull
-  #Scenario Outline: Verifico que en las tablas los campos obligatorios sean distintos de null
-    #When realizo consulta de la table<nametable>
-    #Then valido que los campos sean obligatorios
-#
-    #Examples: 
-      #| nametable             |
-      #| "customer"            |
-      #| "lov"                 |
-      #| "audit_trail"         |
-      #| "contact"             |
-      #| "contact_method"      |
-      #| "customer_identifier" |
-      #| "economy_activity"    |
-      #| "economy_type"        |
-      #| "hierarchy_address"   |
-      #| "address"             |
+
+    @VerificoCamposObligatoriosLov
+    Examples: Validar Campos Obligatorios de la tabla Lov
+      | nombreCampo | nametable |
+      | "LOV_ID"    | "LOV"     |
+      | "TYPE"      | "LOV"     |
+      | "KEY"       | "LOV"     |
+      | "VALUE"     | "LOV"     |
+
+    @VerificoCamposObligatoriosTransaction_Log
+    Examples: Validar Campos Obligatorios de la tabla Transaction_Log
+      | nombreCampo     | nametable         |
+      | "AUDIT_ID"      | "TRANSACTION_LOG" |
+      | "VALUE"         | "TRANSACTION_LOG" |
+      | "CREATION_DATE" | "TRANSACTION_LOG" |
+      | "STATUS"        | "TRANSACTION_LOG" |
+
+    @VerificoCamposObligatoriosEconomy_Activity
+    Examples: Validar Campos Obligatorios de la tabla Economy_Activity
+      | nombreCampo             | nametable          |
+      | "ECONOMY_ACTIVITY_ID"   | "ECONOMY_ACTIVITY" |
+      | "ECONOMY_ACTIVITY_CODE" | "ECONOMY_ACTIVITY" |
+      | "TYPE"                  | "ECONOMY_ACTIVITY" |
+      | "COUNTRY"               | "ECONOMY_ACTIVITY" |
+
+    @VerificoCamposObligatoriosEconomy_Type
+    Examples: Validar Campos Obligatorios de la tabla Economy_Type
+      | nombreCampo                  | nametable      |
+      | "ECONOMY_ACTIVITY_ID"        | "ECONOMY_TYPE" |
+      | "CUSTOMER_ID"                | "ECONOMY_TYPE" |
+      | "PRINCIPAL_ECONOMY_ACTIVITY" | "ECONOMY_TYPE" |
+      | "ACTIVE"                     | "ECONOMY_TYPE" |
+      | "CREATION_DATE"              | "ECONOMY_TYPE" |
   #@ExistenRegTablasMaestras
   #Scenario Outline: Verifico Tablas Maestras con datos cargados
     #When realizo consulta de la tabla maestra <nametable>

@@ -20,7 +20,7 @@ public class ColumnaModelDAO {
 	public static String getFkTableByNameTable(ColumnaModel colummna) throws Exception {
 		String valor = "";
 		try {
-			valor = (String) BaseFlow.sqlMap.queryForObject("getFkTableByNameTable",  colummna);
+			valor = (String) BaseFlow.sqlMap.queryForObject("columnaModel.getFkTableByNameTable",  colummna);
 			
 		} catch (Exception e) {
 		//	throw e;
@@ -32,7 +32,7 @@ public class ColumnaModelDAO {
 	public static String getNotNullTableByNameTable(ColumnaModel colummna) throws Exception {
 		String valor = "";
 		try {
-			valor = (String) BaseFlow.sqlMap.queryForObject("getNotNullTableByNameTable",  colummna);
+			valor = (String) BaseFlow.sqlMap.queryForObject("columnaModel.getNotNullTableByNameTable",  colummna);
 			
 		} catch (Exception e) {
 		//	throw e;

@@ -3,20 +3,50 @@
    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" 
    "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
    
- <sqlMap>
+ <sqlMap namespace="customer">
  
 	 <resultMap class="com.sodimac.automation.model.Customer" id="resultCustomer">
 	 	  <result property="customer_id" column="customer_id"/>
 	 	   <result property="name" column="name"/>
 	 </resultMap>
  
-	<select id="getCustomerById" resultClass="com.sodimac.automation.model.Customer">
+	<select id="getCustomerById" resultClass="com.sodimac.automation.model.Customer" resultMap="resultCustomer">
 		select 
 			customer_id,
 		    name
 		from 
 			customer
 		where customer_id = #customer_id#;
+	</select>
+	
+	<select id="getCustomerByFilter" resultClass="com.sodimac.automation.model.Customer" resultMap="resultCustomer">
+		select 
+			"CUSTOMER_ID"
+			,"NAME"
+			,"CUSTOMER_TYPE"
+			,"FANTASY_NAME"
+			,"QUALITY"
+			,"SOURCE_REGISTRATION"
+			,"SURNAME"
+			,"GENDER"
+			,"OCUPATION"
+			,"BIRTHDAY"
+			,"SUBSCRIBED"
+			,"ACTIVE"
+			,"IDENTIFIER_TYPE"
+			,"IDENTIFIER_VALUE"
+			,"IDENTIFIER_COUNTRY"
+			,"COUNTRY"
+			,"PARENT"
+			,"CREATION_DATE"
+			,"LAST_UPDATE"
+		from 
+			"CUSTOMER"
+		<dynamic prepend="WHERE ">
+			<isNotEmpty prepend="AND" property="id">
+			       id = #id#
+			</isNotEmpty>	
+		</dynamic>
 	</select>
 	
 </sqlMap>

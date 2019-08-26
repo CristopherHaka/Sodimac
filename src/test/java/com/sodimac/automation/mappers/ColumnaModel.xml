@@ -3,7 +3,7 @@
    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" 
    "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
 
-<sqlMap>
+<sqlMap namespace="columnaModel">
 
 	<resultMap id="resultPkTable"
 		class="com.sodimac.automation.model.ColumnaModel">
@@ -13,7 +13,9 @@
 	<select id="getPkTableByNameTable"
 		parameterClass="com.sodimac.automation.model.ColumnaModel"
 		resultClass="long">
-		select count(c.column_name) from
+		select 
+			count(c.column_name) 
+		from
 			information_schema.constraint_column_usage c
 		    inner join information_schema.table_constraints t on (c.constraint_name = t.constraint_name )
 		where
@@ -25,7 +27,9 @@
 	</select>
 	
 	<select id="getFkTableByNameTable" parameterClass="com.sodimac.automation.model.ColumnaModel" resultClass="String">
-		select c.table_name from
+		select 
+			c.table_name 
+		from
 			information_schema.constraint_column_usage c
 			inner join information_schema.table_constraints t on (c.constraint_name = t.constraint_name )
 		where
@@ -37,7 +41,10 @@
 	</select>
 	
 	<select id="getNotNullTableByNameTable" parameterClass="com.sodimac.automation.model.ColumnaModel" resultClass="String">
-		select is_nullable from information_schema.columns
+		select 
+			is_nullable 
+		from 
+			information_schema.columns
 		where
 			table_schema = #nombreEsquema# 
 			and table_catalog = #nombreBD#
